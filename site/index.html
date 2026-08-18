@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>DA-tuts marimo pilot</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 640px; margin: 3rem auto; padding: 0 1rem; color: #222; }
+  h1 { font-size: 1.4rem; }
+  ul { line-height: 2.2; padding-left: 1.2rem; }
+  a { color: #1a5fb4; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  p.note { color: #666; font-size: 0.9rem; }
+</style>
+</head>
+<body>
+<h1>DA-tuts &mdash; marimo pilot (T1&ndash;T4)</h1>
+<p>Self-contained, no-install, editable notebooks running entirely in your browser via WebAssembly &mdash; no server, no login.</p>
+<ul>
+  <li><a href="T1/T1.html">T1 &ndash; DA &amp; Introduction</a></li>
+  <li><a href="T2/T2.html">T2 &ndash; Gaussian distribution</a></li>
+  <li><a href="T3/T3.html">T3 &ndash; Bayesian inference</a></li>
+  <li><a href="T4/T4.html">T4 &ndash; Time series filtering</a></li>
+</ul>
+<p class="note">
+  Pilot only: T5&ndash;T9 aren't converted yet. T1 uses <code>dapper</code>,
+  which currently fails to install in this WASM environment (a known,
+  unresolved dependency-pin conflict) &mdash; everything else in T1 runs fine.
+  Cross-notebook navigation and this landing page are hand-built for the
+  pilot, not a marimo feature.
+</p>
+</body>
+</html>
