@@ -14,7 +14,13 @@
 </head>
 <body>
 <h1>DA-tuts &mdash; marimo pilot (T1&ndash;T4)</h1>
-<p>Self-contained, no-install, editable notebooks running entirely in your browser via WebAssembly &mdash; no server, no login.</p>
+<p>Self-contained, no-install, <strong>editable and re-runnable</strong> notebooks
+running entirely in your browser via WebAssembly &mdash; no server, no login.</p>
+<p class="note">
+  <strong>After opening a notebook</strong>, cells don't auto-run (a marimo
+  WASM quirk) &mdash; press <kbd>Cmd</kbd>/<kbd>Ctrl</kbd>+<kbd>K</kbd>, type
+  "run all", and hit Enter once to execute everything.
+</p>
 <ul>
   <li><a href="T1/T1.html">T1 &ndash; DA &amp; Introduction</a></li>
   <li><a href="T2/T2.html">T2 &ndash; Gaussian distribution</a></li>
@@ -22,11 +28,12 @@
   <li><a href="T4/T4.html">T4 &ndash; Time series filtering</a></li>
 </ul>
 <p class="note">
-  Pilot only: T5&ndash;T9 aren't converted yet. T1 uses <code>dapper</code>,
-  which currently fails to install in this WASM environment (a known,
-  unresolved dependency-pin conflict) &mdash; everything else in T1 runs fine.
-  Cross-notebook navigation and this landing page are hand-built for the
-  pilot, not a marimo feature.
+  Pilot only: T5&ndash;T9 aren't converted yet. Cross-notebook navigation and
+  this landing page are hand-built for the pilot, not a marimo feature. Cells
+  meant to be hidden (answer reveals, widget setup) show as a translucent,
+  read-only code preview rather than being fully invisible &mdash; a known,
+  currently-open marimo limitation in editable views (upstream issue
+  <a href="https://github.com/marimo-team/marimo/issues/5244">marimo#5244</a>).
 </p>
 </body>
 </html>
