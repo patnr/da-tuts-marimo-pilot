@@ -4,7 +4,6 @@
 #     "marimo>=0.24.0",
 #     "numpy",
 #     "matplotlib",
-#     "dapper==1.7.3",
 # ]
 # ///
 import marimo
@@ -362,60 +361,19 @@ def _(mo):
 
     ## DAPPER example
 
-    This tutorial builds on the underlying package, [DAPPER](https://github.com/nansencenter/DAPPER), made for academic research in DA and its dissemination. For example, the code below is taken from  `DAPPER/example_1.py`. It illustrates DA on a small toy problem. At the end of these tutorials, you should be able to reproduce (from the ground up) this type of experiment.
+    This tutorial builds on the underlying package, [DAPPER](https://github.com/nansencenter/DAPPER), made for academic research in DA and its dissemination. At the end of these tutorials, you should be able to reproduce (from the ground up) this type of experiment.
 
-    Run the cells in order and try to interpret the output.
     <mark><font size="-1">
-    <em>Don't worry</em> if you can't understand what's going on – we will discuss it later throughout the tutorials.
+    Migration note: this section (running a small `DAPPER/example_1.py`-style
+    EnKF experiment) is temporarily removed from this pilot. `dapper==1.7.3`
+    fails to install in marimo's WASM/Pyodide export -- a version-pin conflict
+    (`dapper` requires `dill>=0.4.1`, Pyodide ships `dill==0.3.8`, and
+    micropip's default install mode won't upgrade an already-installed
+    package). This is a cheap fix on the DAPPER side (relax or test the pin
+    against 0.3.8), not attempted here; until then, this section is dropped so
+    the rest of the notebook runs cleanly.
     </font></mark>
     """)
-    return
-
-
-@app.cell
-def _():
-    import dapper as dpr
-    import dapper.da_methods as da
-
-    # Load experiment setup: the hidden Markov model (HMM)
-    from dapper.mods.Lorenz63.sakov2012 import HMM
-    HMM.tseq.T = 30  # shorten experiment
-
-    # Simulate synthetic truth (xx) and noisy obs (yy)
-    xx, yy = HMM.simulate()
-
-    # Specify a DA method configuration ("xp" is short for "experiment")
-    # xp = da.OptInterp()
-    # xp = da.Var3D()
-    # xp = da.ExtKF(infl=90)
-    xp = da.EnKF('Sqrt', N=10, infl=1.02, rot=True)
-    # xp = da.PartFilt(N=100, reg=2.4, NER=0.3)
-
-    # Assimilate yy, knowing the HMM; xx is used to assess the performance
-    xp.assimilate(HMM, xx, yy)
-
-    # #### Average the time series of various statistics
-    xp.stats.average_in_time()
-
-    print(xp.avrgs.tabulate(['rmse.a', 'rmv.a']))
-    return xp, xx
-
-
-@app.cell
-def _(plt, xp):
-    plt.close('all')  # release any figure numbers marimo's mpl backend is holding
-    xp.stats.replay()
-    return
-
-
-@app.cell
-def _(xp, xx):
-    # Some more diagnostics
-    if False:
-        import dapper.tools.viz as viz
-        viz.plot_rank_histogram(xp.stats)
-        viz.plot_err_components(xp.stats)
-        viz.plot_hovmoller(xx)
     return
 
 
