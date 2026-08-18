@@ -6,11 +6,11 @@ evaluating marimo as a durable, self-contained replacement for Colab.
 
 ## Inspect what students would see
 
-`site/` is a pre-built, self-contained WASM export &mdash; no server, no
+`docs/` is a pre-built, self-contained WASM export &mdash; no server, no
 install, no login. Serve it locally and open in a browser:
 
 ```
-python -m http.server --directory site
+python -m http.server --directory docs
 ```
 
 then visit `http://localhost:8000`.
