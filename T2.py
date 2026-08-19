@@ -17,7 +17,7 @@ app = marimo.App()
 @app.cell
 def _():
     import marimo as mo
-    from answers_data import get_answer
+    from answers_data import show_answer
     import numpy as np
     import scipy as sp
     import numpy.linalg as la
@@ -25,7 +25,7 @@ def _():
     import matplotlib.pyplot as plt
     plt.ion()
     rnd.seed(3000)
-    return get_answer, la, mo, np, plt, rnd, sp
+    return la, mo, np, plt, rnd, show_answer, sp
 
 
 @app.cell(hide_code=True)
@@ -220,8 +220,8 @@ def _(mo):
 
 
 @app.cell(hide_code=True)
-def _(get_answer, mo):
-    mo.accordion({"🔍 Show answer": mo.md(get_answer("pdf_G1"))})
+def _(show_answer):
+    show_answer("pdf_G1")
     return
 
 
@@ -257,8 +257,8 @@ def _(mo):
 
 
 @app.cell(hide_code=True)
-def _(get_answer, mo):
-    mo.accordion({"🔍 Show answer": mo.md(get_answer("CVar in proba"))})
+def _(show_answer):
+    show_answer("CVar in proba")
     return
 
 
@@ -287,8 +287,8 @@ def _(mo):
 
 
 @app.cell(hide_code=True)
-def _(get_answer, mo):
-    mo.accordion({"🔍 Show answer": mo.md(get_answer("Gauss integrals"))})
+def _(show_answer):
+    show_answer("Gauss integrals")
     return
 
 
@@ -320,8 +320,8 @@ def _(grid1d, np, pdf_G1):
 
 
 @app.cell(hide_code=True)
-def _(get_answer, mo):
-    mo.accordion({"🔍 Show answer": mo.md(get_answer("Riemann sums", "a"))})
+def _(show_answer):
+    show_answer("Riemann sums", "a")
     return
 
 
@@ -357,8 +357,8 @@ def _(np, sp):
 
 
 @app.cell(hide_code=True)
-def _(get_answer, mo):
-    mo.accordion({"🔍 Show answer": mo.md(get_answer("pdf_U1"))})
+def _(show_answer):
+    show_answer("pdf_U1")
     return
 
 
@@ -538,8 +538,8 @@ def _(mo):
 
 
 @app.cell(hide_code=True)
-def _(get_answer, mo):
-    mo.accordion({"🔍 Show answer": mo.md(get_answer("Correlation extremes", "a"))})
+def _(show_answer):
+    show_answer("Correlation extremes", "a")
     return
 
 
@@ -579,8 +579,8 @@ def _(mo):
 
 
 @app.cell(hide_code=True)
-def _(get_answer, mo):
-    mo.accordion({"🔍 Show answer": mo.md(get_answer("RV linear algebra", "a"))})
+def _(show_answer):
+    show_answer("RV linear algebra", "a")
     return
 
 
@@ -640,8 +640,8 @@ def _(mo):
 
 
 @app.cell(hide_code=True)
-def _(get_answer, mo):
-    mo.accordion({"🔍 Show answer": mo.md(get_answer("Broadcasting"))})
+def _(show_answer):
+    show_answer("Broadcasting")
     return
 
 
@@ -654,8 +654,8 @@ def _(mo):
 
 
 @app.cell(hide_code=True)
-def _(get_answer, mo):
-    mo.accordion({"🔍 Show answer": mo.md(get_answer("Why Gaussian"))})
+def _(show_answer):
+    show_answer("Why Gaussian")
     return
 
 

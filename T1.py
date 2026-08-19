@@ -15,9 +15,9 @@ app = marimo.App()
 @app.cell
 def _():
     import marimo as mo
-    from answers_data import get_answer
+    from answers_data import show_answer
 
-    return mo, get_answer
+    return mo, show_answer
 
 
 @app.cell(hide_code=True)
@@ -167,8 +167,8 @@ def _(mo):
 
 
 @app.cell(hide_code=True)
-def _(get_answer, mo):
-    mo.accordion({"🔍 Show answer": mo.md(get_answer("state variables"))})
+def _(show_answer):
+    show_answer("state variables")
     return
 
 
@@ -198,8 +198,8 @@ def _(mo):
 
 
 @app.cell(hide_code=True)
-def _(get_answer, mo):
-    mo.accordion({"🔍 Show answer": mo.md(get_answer("model error"))})
+def _(show_answer):
+    show_answer("model error")
     return
 
 
@@ -247,8 +247,8 @@ def _(mo):
 
 
 @app.cell(hide_code=True)
-def _(get_answer, mo):
-    mo.accordion({"🔍 Show answer": mo.md(get_answer("obs examples"))})
+def _(show_answer):
+    show_answer("obs examples")
     return
 
 
@@ -391,8 +391,8 @@ def _(mo):
 
 
 @app.cell(hide_code=True)
-def _(get_answer, mo):
-    mo.accordion({"🔍 Show answer": mo.md(get_answer("thesaurus 1"))})
+def _(show_answer):
+    show_answer("thesaurus 1")
     return
 
 
@@ -417,8 +417,8 @@ def _(mo):
 
 
 @app.cell(hide_code=True)
-def _(get_answer, mo):
-    mo.accordion({"🔍 Show answer": mo.md(get_answer("thesaurus 2"))})
+def _(show_answer):
+    show_answer("thesaurus 2")
     return
 
 
@@ -439,8 +439,8 @@ def _(mo):
 
 
 @app.cell(hide_code=True)
-def _(get_answer, mo):
-    mo.accordion({"🔍 Show answer": mo.md(get_answer("Discussion topics 1"))})
+def _(show_answer):
+    show_answer("Discussion topics 1")
     return
 
 

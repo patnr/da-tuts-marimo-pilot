@@ -16,12 +16,12 @@ app = marimo.App()
 @app.cell
 def _():
     import marimo as mo
-    from answers_data import get_answer
+    from answers_data import show_answer
     import numpy as np
     import numpy.random as rnd
     import matplotlib.pyplot as plt
     _ = plt.ion()  # named to avoid auto-displaying plt.ion()'s ExitStack repr
-    return get_answer, mo, np, plt, rnd
+    return mo, np, plt, rnd, show_answer
 
 
 @app.cell(hide_code=True)
@@ -199,8 +199,8 @@ def _(mo):
 
 
 @app.cell(hide_code=True)
-def _(get_answer, mo):
-    mo.accordion({"🔍 Show answer": mo.md(get_answer("AR1"))})
+def _(show_answer):
+    show_answer("AR1")
     return
 
 
@@ -326,8 +326,8 @@ def _(mo):
 
 
 @app.cell(hide_code=True)
-def _(get_answer, mo):
-    mo.accordion({"🔍 Show answer": mo.md(get_answer("KF behaviour"))})
+def _(show_answer):
+    show_answer("KF behaviour")
     return
 
 
@@ -355,8 +355,8 @@ def _(mo):
 
 
 @app.cell(hide_code=True)
-def _(get_answer, mo):
-    mo.accordion({"🔍 Show answer": mo.md(get_answer("Asymptotic Riccati", "a"))})
+def _(show_answer):
+    show_answer("Asymptotic Riccati", "a")
     return
 
 
@@ -377,8 +377,8 @@ def _(mo):
 
 
 @app.cell(hide_code=True)
-def _(get_answer, mo):
-    mo.accordion({"🔍 Show answer": mo.md(get_answer("Asymptotes when Q>0"))})
+def _(show_answer):
+    show_answer("Asymptotes when Q>0")
     return
 
 
@@ -422,8 +422,8 @@ def _(mo):
 
 
 @app.cell(hide_code=True)
-def _(get_answer, mo):
-    mo.accordion({"🔍 Show answer": mo.md(get_answer("KF with bias"))})
+def _(show_answer):
+    show_answer("KF with bias")
     return
 
 
@@ -497,8 +497,8 @@ def _(mo):
 
 
 @app.cell(hide_code=True)
-def _(get_answer, mo):
-    mo.accordion({"🔍 Show answer": mo.md(get_answer("signal processing", "a"))})
+def _(show_answer):
+    show_answer("signal processing", "a")
     return
 
 

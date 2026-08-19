@@ -16,7 +16,7 @@ app = marimo.App()
 @app.cell
 async def _():
     import marimo as mo
-    from answers_data import get_answer
+    from answers_data import show_answer
     from T2 import app as _t2_app
     _t2 = await _t2_app.embed()  # runs T2.py itself and gives access to its variables
     pdf_G1 = _t2.defs["pdf_G1"]
@@ -28,7 +28,7 @@ async def _():
     import numpy as np
     import matplotlib.pyplot as plt
     _ = plt.ion()  # named to avoid auto-displaying plt.ion()'s ExitStack repr
-    return mo, get_answer, pdf_G1, pdf_U1, bounds, dx, grid1d, mean_and_var, np, plt
+    return mo, show_answer, pdf_G1, pdf_U1, bounds, dx, grid1d, mean_and_var, np, plt
 
 
 @app.cell(hide_code=True)
@@ -110,8 +110,8 @@ def _(mo):
 
 
 @app.cell(hide_code=True)
-def _(get_answer, mo):
-    mo.accordion({"🔍 Show answer": mo.md(get_answer("symmetry of conjunction"))})
+def _(show_answer):
+    show_answer("symmetry of conjunction")
     return
 
 
@@ -145,8 +145,8 @@ def _(mo):
 
 
 @app.cell(hide_code=True)
-def _(get_answer, mo):
-    mo.accordion({"🔍 Show answer": mo.md(get_answer("quadrature marginalisation"))})
+def _(show_answer):
+    show_answer("quadrature marginalisation")
     return
 
 
@@ -262,8 +262,8 @@ def _(mo):
 
 
 @app.cell(hide_code=True)
-def _(get_answer, mo):
-    mo.accordion({"🔍 Show answer": mo.md(get_answer("Posterior behaviour"))})
+def _(show_answer):
+    show_answer("Posterior behaviour")
     return
 
 
@@ -299,8 +299,8 @@ def _(mo):
 
 
 @app.cell(hide_code=True)
-def _(get_answer, mo):
-    mo.accordion({"🔍 Show answer": mo.md(get_answer("Likelihood"))})
+def _(show_answer):
+    show_answer("Likelihood")
     return
 
 
@@ -324,8 +324,8 @@ def _(mo):
 
 
 @app.cell(hide_code=True)
-def _(get_answer, mo):
-    mo.accordion({"🔍 Show answer": mo.md(get_answer("Observation models", "a"))})
+def _(show_answer):
+    show_answer("Observation models", "a")
     return
 
 
@@ -340,8 +340,8 @@ def _(mo):
 
 
 @app.cell(hide_code=True)
-def _(get_answer, mo):
-    mo.accordion({"🔍 Show answer": mo.md(get_answer("what's forward?"))})
+def _(show_answer):
+    show_answer("what's forward?")
     return
 
 
@@ -397,8 +397,8 @@ def _(mo):
 
 
 @app.cell(hide_code=True)
-def _(get_answer, mo):
-    mo.accordion({"🔍 Show answer": mo.md(get_answer("BR Gauss, a.k.a. completing the square", "a"))})
+def _(show_answer):
+    show_answer("BR Gauss, a.k.a. completing the square", "a")
     return
 
 
@@ -418,8 +418,8 @@ def _(mo):
 
 
 @app.cell(hide_code=True)
-def _(get_answer, mo):
-    mo.accordion({"🔍 Show answer": mo.md(get_answer("LG BR example"))})
+def _(show_answer):
+    show_answer("LG BR example")
     return
 
 
@@ -504,8 +504,8 @@ def _(mo):
 
 
 @app.cell(hide_code=True)
-def _(get_answer, mo):
-    mo.accordion({"🔍 Show answer": mo.md(get_answer("BR Kalman1 algebra"))})
+def _(show_answer):
+    show_answer("BR Kalman1 algebra")
     return
 
 
@@ -525,8 +525,8 @@ def _(mo):
 
 
 @app.cell(hide_code=True)
-def _(get_answer, mo):
-    mo.accordion({"🔍 Show answer": mo.md(get_answer("KG intuition"))})
+def _(show_answer):
+    show_answer("KG intuition")
     return
 
 
@@ -539,8 +539,8 @@ def _(mo):
 
 
 @app.cell(hide_code=True)
-def _(get_answer, mo):
-    mo.accordion({"🔍 Show answer": mo.md(get_answer("BR Kalman1 code"))})
+def _(show_answer):
+    show_answer("BR Kalman1 code")
     return
 
 
@@ -579,8 +579,8 @@ def _(mo):
 
 
 @app.cell(hide_code=True)
-def _(get_answer, mo):
-    mo.accordion({"🔍 Show answer": mo.md(get_answer("MMSE"))})
+def _(show_answer):
+    show_answer("MMSE")
     return
 
 

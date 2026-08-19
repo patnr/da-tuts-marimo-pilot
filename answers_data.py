@@ -579,3 +579,10 @@ def get_answer(tag: str, *subtags: str) -> str:
         if not subtag_str or any(key.endswith(" " + ch) for ch in subtags):
             parts.append(ANSWERS[key])
     return "\n\n---\n\n".join(p.strip() for p in parts)
+
+
+def show_answer(tag: str, *subtags: str):
+    """mo.accordion({"🔍 Show answer": mo.md(get_answer(tag, *subtags))}), as a one-liner."""
+    import marimo as mo
+
+    return mo.accordion({"🔍 Show answer": mo.md(get_answer(tag, *subtags))})
