@@ -18,6 +18,7 @@ app = marimo.App(width="full", css_file="custom.css")
 def _():
     import marimo as mo
     from answers_data import show_answer
+    from notebook_utils import linkup
     import numpy as np
     import scipy as sp
     import numpy.linalg as la
@@ -25,7 +26,7 @@ def _():
     import matplotlib.pyplot as plt
     plt.ion()
     rnd.seed(3000)
-    return la, mo, np, plt, rnd, show_answer, sp
+    return la, linkup, mo, np, plt, rnd, show_answer, sp
 
 
 @app.cell(hide_code=True)
@@ -163,7 +164,7 @@ def _():
 
 
 @app.cell
-def _(bounds, controls, grid1d, mo, pdf_G1, pdf_hist, plt):
+def _(bounds, controls, grid1d, linkup, pdf_G1, pdf_hist, plt):
     def _plot_pdf(mu, sigma):
         plt.figure(figsize=(6, 2))
         colors = plt.get_cmap('hsv')([(k - len(pdf_hist)) % 9 / 9 for k in range(9)])
@@ -174,10 +175,7 @@ def _(bounds, controls, grid1d, mo, pdf_G1, pdf_hist, plt):
             plt.plot(grid1d, density_values, c=color)
         return plt.gca()
 
-    mo.vstack([
-        mo.hstack(list(controls.values()), justify="start"),
-        _plot_pdf(**controls.value),
-    ])
+    linkup(controls, _plot_pdf)
     return
 
 
@@ -469,7 +467,7 @@ def _(mo):
 
 
 @app.cell
-def _(controls2, grid1d, grid2d, la, mo, np, pdf_GM, plt, sample_GM):
+def _(controls2, grid1d, grid2d, la, linkup, np, pdf_GM, plt, sample_GM):
     def _plot_pdf_G2(corr, std_x, seed):
         mu = 0
         var_x = std_x**2
@@ -491,10 +489,7 @@ def _(controls2, grid1d, grid2d, la, mo, np, pdf_GM, plt, sample_GM):
         plt.axis('equal')
         return plt.gca()
 
-    mo.vstack([
-        mo.hstack(list(controls2.values()), justify="start"),
-        _plot_pdf_G2(**controls2.value),
-    ])
+    linkup(controls2, _plot_pdf_G2)
     return
 
 

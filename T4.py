@@ -17,11 +17,12 @@ app = marimo.App(width="full", css_file="custom.css")
 def _():
     import marimo as mo
     from answers_data import show_answer
+    from notebook_utils import linkup
     import numpy as np
     import numpy.random as rnd
     import matplotlib.pyplot as plt
     _ = plt.ion()  # named to avoid auto-displaying plt.ion()'s ExitStack repr
-    return mo, np, plt, rnd, show_answer
+    return linkup, mo, np, plt, rnd, show_answer
 
 
 @app.cell(hide_code=True)
@@ -115,7 +116,7 @@ def _(mo):
 
 
 @app.cell
-def _(H, KF, Pa0, controls, mo, np, plt, rnd, simulate, xa0):
+def _(H, KF, Pa0, controls, linkup, np, plt, rnd, simulate, xa0):
     def exprmt(seed, nTime, M, logR, logQ, analyses_only, logR_bias, logQ_bias):
         R, Q, Q_bias, R_bias = 4.0**np.array([logR, logQ, logQ_bias, logR_bias])
 
@@ -144,10 +145,7 @@ def _(H, KF, Pa0, controls, mo, np, plt, rnd, simulate, xa0):
         plt.axhline(0, c='k', lw=1, ls='--')
         return plt.gca()
 
-    mo.vstack([
-        mo.hstack(list(controls.values()), wrap=True, justify="start"),
-        exprmt(**controls.value),
-    ])
+    linkup(controls, exprmt, wrap=True)
     return
 
 

@@ -17,6 +17,7 @@ app = marimo.App(width="full", css_file="custom.css")
 async def _():
     import marimo as mo
     from answers_data import show_answer
+    from notebook_utils import linkup
     from T2 import app as _t2_app
     _t2 = await _t2_app.embed()  # runs T2.py itself and gives access to its variables
     pdf_G1 = _t2.defs["pdf_G1"]
@@ -28,7 +29,7 @@ async def _():
     import numpy as np
     import matplotlib.pyplot as plt
     _ = plt.ion()  # named to avoid auto-displaying plt.ion()'s ExitStack repr
-    return mo, show_answer, pdf_G1, pdf_U1, bounds, dx, grid1d, mean_and_var, np, plt
+    return mo, linkup, show_answer, pdf_G1, pdf_U1, bounds, dx, grid1d, mean_and_var, np, plt
 
 
 @app.cell(hide_code=True)
@@ -186,7 +187,7 @@ def _(bounds, mo, pdfs):
 
 
 @app.cell
-def _(Bayes_rule, Bayes_rule_LG1, controls, grid1d, mean_and_var, mo, pdf_G1, pdfs, plt):
+def _(Bayes_rule, Bayes_rule_LG1, controls, grid1d, linkup, mean_and_var, pdf_G1, pdfs, plt):
     def Bayes1(y, logR, lklhd_kind, prior_kind):
         R = 4**logR
         xf = 10
@@ -225,10 +226,7 @@ def _(Bayes_rule, Bayes_rule_LG1, controls, grid1d, mean_and_var, mo, pdf_G1, pd
         plt.legend(loc="upper left", prop={'family': 'monospace'})
         return plt.gca()
 
-    mo.vstack([
-        mo.hstack(list(controls.values()), justify="start"),
-        Bayes1(**controls.value),
-    ])
+    linkup(controls, Bayes1)
     return
 
 
