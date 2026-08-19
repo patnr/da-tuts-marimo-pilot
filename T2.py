@@ -37,11 +37,9 @@ def _(mo):
     We begin by reviewing the most useful of probability distributions.
     But first, let's refresh some basic theory.
 
-    <a name="Probability-essentials"></a>
-
     ## Probability essentials
 
-    As stated by James Bernoulli (1713) and elucidated by [Laplace (1812)](#References):
+    As stated by James Bernoulli (1713) and elucidated by [Laplace (1812)](#references):
 
     > The Probability for an event is the ratio of the number of cases favorable to it, to the number of all
     > cases possible when nothing leads us to expect that any one of these cases should occur more than any other,
@@ -182,7 +180,7 @@ def _(bounds, controls, grid1d, hookup, pdf_G1, pdf_hist, plt):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    #### Exc – parameter influence
+    #### Exc – Parameter impact on the density
 
     Experiment with `mu` and `sigma` to answer these questions:
 
@@ -211,7 +209,9 @@ def _(mo):
     - In a few words, describe the shape of the Gaussian pdf curve.
       Does this remind you of anything? *Hint: it should be clear as a bell!*
 
-    **Exc – Implementation:** Change the implementation of `pdf_G1` so that it does not use `scipy`, but instead uses your own code (with `numpy` only). Re-run all of the above cells and check that you get the same plots as before.
+    #### Exc – Implementation
+
+    Change the implementation of `pdf_G1` so that it does not use `scipy`, but instead uses your own code (with `numpy` only). Re-run all of the above cells and check that you get the same plots as before.
     *Hint: `**` is the exponentiation/power operator, but $e^x$ is more efficiently computed with `np.exp(x)`*
     """)
     return
@@ -226,7 +226,9 @@ def _(show_answer):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    **Exc – Derivatives:** Recall $p(x) = \mathscr{N}(x \mid \mu, \sigma^2)$ from eqn. (G1).
+    #### Exc – Derivatives
+
+    Recall $p(x) = \mathscr{N}(x \mid \mu, \sigma^2)$ from eqn. (G1).
     Use pen, paper, and calculus to answer the following questions,
     which will help you remember some key properties of the distribution.
 
@@ -236,8 +238,6 @@ def _(mo):
       *Hint: begin by writing $p(x)$ as $c e^{- J(x)}$ for some $J(x)$.*
     - (iii) Where is the **inflection point**? I.e. where $\frac{d^2 p}{d x^2}(x) = 0$.
     - (iv) *Optional*: Some forms of *sensitivity analysis* (typically for non-Gaussian $p$) consist in estimating/approximating the Hessian, i.e. $\frac{d^2 \log p}{d x^2}$. Explain what this has to do with *uncertainty quantification*.
-
-    <a name="Exc-(optional)-–-Change-of-variables"></a>
 
     #### Exc (optional) – Change of variables
 
@@ -263,8 +263,6 @@ def _(show_answer):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    <a name="Exc-(optional)-–-Integrals"></a>
-
     #### Exc (optional) – Integrals
 
     Recall $p(x) = \mathscr{N}(x \mid \mu, \sigma^2)$ from eqn. (G1). Abbreviate it as $c = (2 \pi \sigma^2)^{-1/2}$.
@@ -278,7 +276,7 @@ def _(mo):
     - (iii) $c$ is indeed the right normalizing constant, i.e. that
       $$ E[1] = 1 \,. $$
       *Hint: Neither Bernoulli and Laplace managed this,
-      until [Gauss (1809)](#References) did by first deriving $(E[1])^2$.
+      until [Gauss (1809)](#references) did by first deriving $(E[1])^2$.
       Here is a nice [video demonstration by 3Blue1Brown](https://www.youtube.com/watch?v=cy8r7WSuT1I&t=3m52s).*
     """)
     return
@@ -293,7 +291,8 @@ def _(show_answer):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    **Exc (optional) – Riemann sums**:
+    #### Exc (optional) – Riemann sums
+
     Recall that integrals (for example for the mean and variance)
     compute an "area under the curve".
     On a discrete grid, integrals can be approximated using the [Trapezoidal rule](https://en.wikipedia.org/wiki/Riemann_sum#Trapezoidal_rule).
@@ -326,7 +325,8 @@ def _(show_answer):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    **Exc – The uniform pdf**:
+    #### Exc – The uniform distribution
+
     Below is the pdf of the [uniform/flat/box distribution](https://en.wikipedia.org/wiki/Uniform_distribution_(continuous))
     for a given mean and variance.
 
@@ -394,7 +394,7 @@ def _(mo):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    Moreover, [as above](#Exc-(optional)-–-Integrals), it can be shown that
+    Moreover, [as above](#exc-optional-integrals), it can be shown that
 
     - $\mathbf{\mu} = \mathbb{E}[\mathbf{X}]$,
     - $\mathbf{\Sigma} = \mathbb{E}[(\mathbf{X}-\mu)(\mathbf{X}-\mu)^{\mathsf{T}}]  =: \mathbb{Cov}(\mathbf{X})$.
@@ -505,7 +505,9 @@ def _(mo):
     It quantifies (defines) the ***linear dependence*** between $X$ and $Y$,
     as illustrated by the following exercises.
 
-    **Exc – Correlation influence:** How do the contours look? Try to understand why. Cases:
+    #### Exc – Correlation influence
+
+    How do the contours look? Try to understand why. Cases:
 
     - (a) correlation=0.
     - (b) correlation=0.99.
@@ -516,8 +518,6 @@ def _(mo):
 
     More generally, it can be shown that $\rho^2$ is the proportion of the variance of $Y$
     captured/explained by a simple linear regression from $X$.
-
-    <a name="Exc-–-correlation-extremes"></a>
 
     #### Exc (optional) – Correlation extremes
 
@@ -541,9 +541,11 @@ def _(show_answer):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    **Exc Correlation game:** [Play](http://guessthecorrelation.com/) until you get a score (gold coins) of 5 or more.
+    #### Exc – Correlation game
 
-    **Exc – Correlation disambiguation:**
+    [Play](http://guessthecorrelation.com/) until you get a score (gold coins) of 5 or more.
+
+    #### Exc – Correlation disambiguation
 
     - What's the difference between correlation and covariance (in a single sentence)?
     - What's the difference between non-zero (C) correlation (or covariance) and (D) dependence?
@@ -555,9 +557,7 @@ def _(mo):
     - Suppose $x$ and $y$ have non-zero correlation, but neither one causes the other.
       Does information about $y$ give you information about $x$?
 
-    <a name="Exc-–-linear-algebra-with-random-variables"></a>
-
-    #### Exc – linear algebra with random variables
+    #### Exc – Arithmetics of random variables
 
     - (a) Prove the linearity of the expectation operator:
       $\mathbb{E}[a X + Y] = a \mathbb{E}[X] + \mathbb{E}[Y]$.
@@ -643,7 +643,9 @@ def _(show_answer):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    **Exc (optional) – Gaussian ubiquity:** Why are we so fond of the Gaussian assumption?
+    #### Exc (optional) – Gaussian ubiquity
+
+    Why are we so fond of the Gaussian assumption?
     """)
     return
 
@@ -666,9 +668,7 @@ def _(mo):
     whose off-diagonal elements represent scaled correlation factors,
     which measure *linear* dependence.
 
-    ### Next: T3 - Bayesian inference
-
-    <a name="References"></a>
+    ### Next: [T3 - Bayes' rule and inference](../T3/T3.html)
 
     ### References
 

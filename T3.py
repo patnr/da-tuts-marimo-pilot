@@ -35,7 +35,7 @@ async def _():
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    # T3 - Bayesian inference
+    # T3 - Bayes' rule and inference
 
     The previous tutorial (T2) studied the Gaussian probability density function (pdf), defined in 1D by:
     $$ \large \mathscr{N}(x \mid \mu, \sigma^2) = (2 \pi \sigma^2)^{-1/2} e^{-(x-\mu)^2/2 \sigma^2} \,,\tag{G1} $$
@@ -64,9 +64,8 @@ def _(mo):
     mo.md(r"""
     *We no longer use uppercase to distinguish random variables from their outcomes (an unfortunate consequence of the myriad of notations to keep track of)!*
 
-    Now that we have reviewed some probability, we can turn to statistical inference and estimation. In particular, we will focus on
-
-    # Bayes' rule
+    Now that we have reviewed some probability, we can turn to statistical inference and estimation.
+    In particular, we will focus on **Bayes' rule**.
     """)
     return
 
@@ -105,7 +104,9 @@ def _(mo):
     \color{red}{\overset{\mbox{Posterior}}{p(\color{black}{x|y})}} = \frac{\color{blue}{\overset{\mbox{  Prior  }}{p(\color{black}{x})}} \, \color{green}{\overset{\mbox{ Likelihood}}{p(\color{black}{y|x})}}}{\color{gray}{\underset{\mbox{Constant wrt. x}}{p(\color{black}{y})}}} \,. \tag{BR} \\[1em]
     $$
 
-    **Exc – Bayes' rule derivation:** Derive eqn. (BR) from the definition of conditional pdfs.
+    #### Exc – Bayes' rule derivation
+
+    Derive eqn. (BR) from the definition of conditional pdfs.
     """)
     return
 
@@ -163,7 +164,7 @@ def _(mo):
     Normalization is only necessary because of the *convention* that all densities integrate to $1$.
     However, for large models, we can usually only afford to evaluate $p(y|x)$ at a few points (of $x$), so the integral for $p(y)$ can only be roughly approximated. In such settings, estimating the normalization factor becomes an important question too.
 
-    ## Interactive illustration
+    ### Interactive illustration
 
     The code below shows Bayes' rule in action.
     """)
@@ -242,7 +243,9 @@ def _(mo):
     We are now dealing with three (!) separate distributions,
     which introduces a lot of symbols to keep track of – a necessary evil for later.
 
-    **Exc – `Bayes1` properties:** This exercise serves to make you acquainted with how Bayes' rule blends information.
+    #### Exc – `Bayes1` properties
+
+    This exercise serves to make you acquainted with how Bayes' rule blends information.
 
     Move the sliders to animate it, and answer the following.
 
@@ -291,7 +294,9 @@ def _(mo):
     and $r \sim \mathscr{N}(0, R)$ for some variance $R>0$.
     Then the likelihood is $p(y|x) = \mathscr{N}(y| \mathscr{H}(x), R) \,.$ (Lklhd)
 
-    **Exc (optional) – The likelihood:** Derive the expression (Lklhd) for the likelihood.
+    #### Exc (optional) – The likelihood
+
+    Derive the expression (Lklhd) for the likelihood.
     """)
     return
 
@@ -332,7 +337,9 @@ def _(mo):
     mo.md(r"""
     It is important to appreciate that the likelihood, and its role in Bayes' rule, does not perform any "inversion". It simply quantifies how well each $x$ fits the data, in terms of its weighting. This approach also inherently handles the fact that multiple values of $x$ may be plausible.
 
-    **Exc (optional) – "why inverse":** Laplace called "statistical inference" the reasoning of "inverse probability" (1774). You may also have heard of "inverse problems" in reference to similar problems, but without a statistical framing. In view of this, why do you think we use $x$ for the unknown, and $y$ for the known/given data?
+    #### Exc (optional) – "why inverse"
+
+    Laplace called "statistical inference" the reasoning of "inverse probability" (1774). You may also have heard of "inverse problems" in reference to similar problems, but without a statistical framing. In view of this, why do you think we use $x$ for the unknown, and $y$ for the known/given data?
     """)
     return
 
@@ -403,7 +410,8 @@ def _(show_answer):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    **Exc – Temperature example:**
+    #### Exc – Temperature example
+
     The statement $x = \mu \pm \sigma$ is *sometimes* used
     as a shorthand for $p(x) = \mathscr{N}(x \mid \mu, \sigma^2)$. Suppose
 
@@ -484,7 +492,9 @@ def _(pdfs):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    **Exc (optional) – Gain algebra:** Show that eqn. (5) can be written as
+    #### Exc (optional) – Gain algebra
+
+    Show that eqn. (5) can be written as
     $$ P^{\text{a}} = K R / \mathscr{H} \,,    \tag{8} $$
     where
     $$ K = \frac{\mathscr{H} P^{\text{f}}}{\mathscr{H}^2 P^{\text{f}} + R} \,,    \tag{9} $$
@@ -531,7 +541,9 @@ def _(show_answer):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    **Exc – BR with Gain:** Re-define `Bayes_rule_LG1` so to as to use eqns. 9-11. Remember to re-run the cell. Verify that you get the same plots as before.
+    #### Exc – BR with Gain
+
+    Re-define `Bayes_rule_LG1` so to as to use eqns. 9-11. Remember to re-run the cell. Verify that you get the same plots as before.
     """)
     return
 
@@ -622,7 +634,7 @@ def _(mo):
     While technically simple, Bayes' rule requires many pointwise multiplications.
     But if Gaussianity can be assumed, it reduces to just two formulae.
 
-    ### Next: T4 - Time series filtering
+    ### Next: [T4 - Time series filtering](../T4/T4.html)
 
     ### References
 

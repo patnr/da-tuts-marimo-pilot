@@ -6,6 +6,7 @@
 #     "matplotlib",
 # ]
 # ///
+
 import marimo
 
 __generated_with = "0.24.0"
@@ -28,10 +29,10 @@ def _(mo):
     *Copyright (c) 2020, Patrick N. Raanes*
 
     This tutorial series introduces *data assimilation (DA)*, beginning with basic mathematical concepts and culminating in your own implementation of the EnKF.
-    Alternatively, the article by [Wikle and Berliner (2007)](#References) is short and nice,
-    while the book by [Asch, Bocquet, and Nodet (2016)](#References) is rigorous and detailed.
+    Alternatively, the article by [Wikle and Berliner (2007)](#references) is short and nice,
+    while the book by [Asch, Bocquet, and Nodet (2016)](#references) is rigorous and detailed.
 
-    ## Jupyter
+    ## Notebooks
 
     The "document" you're currently reading is a *marimo notebook*
     (originally: a *Jupyter notebook*).
@@ -47,7 +48,7 @@ def _():
     name = "Batman"
     print("Hello world! I'm " + name)
     for i, c in enumerate(name):
-        print(i, c)
+        print(100 + i, c)
     return
 
 
@@ -114,7 +115,7 @@ def _():
         plt.plot(_i * a**2, label="i = %d" % _i)
     plt.legend()
     plt.gca()
-    return np, plt
+    return
 
 
 @app.cell(hide_code=True)
@@ -128,7 +129,7 @@ def _(mo):
     For example, it overuses global variables, and is lacking in vectorisation,
     generally for the benefit of terseness and simplicity.
 
-    ## Dynamical and observational models
+    ## Models, for dynamics and observations
 
     What is a ***model***?
     In the broadest sense, a model is a *simplified representation* of something.
@@ -154,7 +155,7 @@ def _(mo):
     - (g) Sports rating (Elo, Glicko, TrueSkill)
     - (h) Financial pricing (Black-Scholes)
 
-    **Exc (optional) – state variables:**
+    #### Exc (optional) – state variables
 
     - For the above model examples above that you are familiar with, list the elements of the state variable.
 
@@ -180,7 +181,8 @@ def _(mo):
 
     > All models are wrong, but some are useful – [George E. P. Box](https://en.wikipedia.org/wiki/All_models_are_wrong)
 
-    **Exc (optional) – model error:**
+    #### Exc (optional) – model error
+
     For each of model examples above, select the shortcomings (below) that seem relevant.
 
     1. Inaccurate at relatively high speeds
@@ -240,7 +242,8 @@ def _(mo):
 
     $$ \mathbf{y}_k = \mathscr{H}_{\!k}(\mathbf{x}_k) + \mathbf{r}_k \,. \tag{ObsMod} $$
 
-    **Exc (optional) – observation examples:**
+    #### Exc (optional) – observation examples
+
     For each of the above dynamical model examples, suggest 1 or more observation kinds (i.e. what will $\mathbf{y}$ consist of?).
     """)
     return
@@ -382,7 +385,8 @@ def _(mo):
     mo.md(r"""
     ## Vocabulary exercises
 
-    **Exc – Word association:**
+    #### Exc – Word association
+
     Group the words below into 3 groups of similar meaning.
 
     `Sample, Random, Measurements, Ensemble, Data, Stochastic, Monte-Carlo, Observations, Set of draws`
@@ -402,7 +406,8 @@ def _(mo):
     - "The answer" is given from the perspective of DA. Do you agree with it?
     - Can you describe the (important!) nuances between the similar words?
 
-    **Exc (optional) – Word association 2:**
+    #### Exc (optional) – Word association 2
+
     Also group (and nuance!) these words, by filling in the `x`s in the list below.
 
     `Inverse problems, Operator, Sample point, Transform(ation), Knowledge, Relation, Probability, Mapping, Particle, Sequential, Inversion, Realization, Relative frequency, Information, Iterative, Estimate, Estimation, Single draw, Serial, Regression, Model, Fitting, Uncertainty`
@@ -425,7 +430,9 @@ def _(show_answer):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    **Exc (optional) – intro discussion:** Prepare to discuss the following questions. Use any tool at your disposal.
+    #### Exc (optional) – intro discussion
+
+    Prepare to discuss the following questions. Use any tool at your disposal.
 
     - (a) What is DA?
     - (b) What is the difference between "state variables" and "parameters"?
@@ -447,9 +454,7 @@ def _(show_answer):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    ### Next: T2 - Gaussian distribution
-
-    <a name="References"></a>
+    ### Next: [T2 - Gaussian distribution](../T2/T2.html)
 
     ### References
 

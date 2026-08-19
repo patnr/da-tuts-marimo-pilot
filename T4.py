@@ -145,7 +145,7 @@ def _(H, KF, Pa0, controls, hookup, np, plt, rnd, simulate, xa0):
         plt.axhline(0, c='k', lw=1, ls='--')
         return plt.gca()
 
-    hookup(controls, exprmt, wrap=True)
+    hookup(controls, exprmt, wrap=True, right=["seed", "nTime"])
     return
 
 
@@ -182,7 +182,9 @@ def cInterval(mu, sigma2, flat=True):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    **Exc – AR1 properties:** Answer the following.
+    #### Exc – AR1 properties
+
+    Answer the following.
 
     - What does `seed` control?
     - Explain what happens when `M=0`. Also consider $Q \rightarrow 0$.
@@ -332,7 +334,7 @@ def _(show_answer):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    #### Exc – Temporal convergence
+    #### Exc – Temporal convergence (CV)
 
     In general, $\mathscr{M}$, $\mathscr{H}$, $Q$, and $R$ depend on time, $k$
     (often to parameterize exogenous/outside factors/forces/conditions),
@@ -361,7 +363,8 @@ def _(show_answer):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    **Exc (optional) – Temporal CV, part 2:**
+    #### Exc (optional) – Temporal CV, part 2
+
     Now we don't assume that $Q$ is zero. Instead
 
     - (a) Suppose $\mathscr{M} = 0$. What does $P^{\text{a}}_k$ equal?
@@ -383,7 +386,7 @@ def _(show_answer):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    #### Exc (optional) – Analytic simplification in the case of an unknown constant
+    #### Exc (optional) – Reduction in the case of an unknown constant
 
     - Note that in case $Q = 0$,
     then $x_{k+1} = \mathscr{M}^k x_0$.
