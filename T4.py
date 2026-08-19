@@ -10,7 +10,7 @@
 import marimo
 
 __generated_with = "0.24.0"
-app = marimo.App()
+app = marimo.App(width="full", css_file="custom.css")
 
 
 @app.cell

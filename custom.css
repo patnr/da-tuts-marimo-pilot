@@ -1,0 +1,4 @@
+/* Slightly smaller code font, to fit more on screen alongside the wider layout. */
+:root {
+  --cm-font-size: 0.8rem;
+}
