@@ -11,7 +11,11 @@
 import marimo
 
 __generated_with = "0.24.0"
-app = marimo.App(width="full", css_file="custom.css")
+app = marimo.App(
+    width="full",
+    layout_file="layouts/T2.slides.json",
+    css_file="custom.css",
+)
 
 
 @app.cell
@@ -26,7 +30,7 @@ def _():
     import matplotlib.pyplot as plt
     plt.ion()
     rnd.seed(3000)
-    return la, hookup, mo, np, plt, rnd, show_answer, sp
+    return hookup, la, mo, np, plt, rnd, show_answer, sp
 
 
 @app.cell(hide_code=True)
@@ -564,7 +568,7 @@ def _(mo):
 
 
 @app.cell
-def _(controls2, grid1d, grid2d, la, hookup, np, pdf_GM, plt, sample_GM):
+def _(controls2, grid1d, grid2d, hookup, la, np, pdf_GM, plt, sample_GM):
     def _plot_pdf_G2(corr, std_x, seed):
         mu = 0
         var_x = std_x**2
