@@ -6,6 +6,10 @@ evaluating marimo as a durable, self-contained replacement for Colab.
 
 ## Inspect what students would see
 
+`patnr.github.io/da-tuts-marimo-pilot/`
+
+### Locally
+
 `docs/` is a pre-built, self-contained, **editable and re-runnable** WASM
 export (`--mode edit`) &mdash; no server, no install, no login. Serve it
 locally and open in a browser:
